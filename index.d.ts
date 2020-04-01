@@ -1,4 +1,5 @@
 import React, { CSSProperties, FC } from "react";
+import { Preset } from "superellipsejs";
 interface SuperEllipseProps {
     width: number;
     height: number;
@@ -19,4 +20,5 @@ export interface SuperEllipseImgProps {
     strokeWidth?: number;
 }
 export declare const SuperEllipseImg: (props: SuperEllipseImgProps) => JSX.Element;
+export { Preset };
 export default SuperEllipse;

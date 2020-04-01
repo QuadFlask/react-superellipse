@@ -16,6 +16,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var superellipsejs_1 = require("superellipsejs");
+exports.Preset = superellipsejs_1.Preset;
 var SuperEllipse = function (props) {
     var w = props.width;
     var h = props.height;

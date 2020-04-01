@@ -11,6 +11,18 @@ function App() {
 
     return <div className="App">
         <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div className="super-ellipse" style={{
+                display: 'flex',
+                margin: 12,
+                borderRadius: Preset.iOS.r2 * size,
+                overflow: "hidden"
+            }}>
+                <img src="https://images.unsplash.com/photo-1585572336833-4f34f2101c18?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=400&amp;q=60" width="300" height="300"/>
+                <PresetName>
+                    <span>round rect</span>
+                    <small>border-radius: {Preset.iOS.r2 * size}px</small>
+                </PresetName>
+            </div>
             <SuperEllipse width={size} height={size} r1={Preset.iOS.r1 * size} r2={Preset.iOS.r2 * size} className="super-ellipse">
                 <img src={imgSrc} width={size} height={size}/>
                 <PresetName>
