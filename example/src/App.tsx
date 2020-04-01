@@ -1,7 +1,6 @@
 import React, {FC, useState} from 'react';
 import './App.css';
-import SuperEllipse from "../../";
-import {Preset} from "superellipsejs";
+import SuperEllipse, {Preset} from "../../";
 
 const size = 300;
 const imgSrc = "https://images.unsplash.com/photo-1585572336833-4f34f2101c18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60";

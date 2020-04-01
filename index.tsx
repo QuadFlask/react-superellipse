@@ -69,4 +69,6 @@ export const SuperEllipseImg = (props: SuperEllipseImgProps) => {
     </svg>
 }
 
+export {Preset}
+
 export default SuperEllipse;
