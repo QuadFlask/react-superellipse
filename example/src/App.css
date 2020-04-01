@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  /*background-color: #282c34;*/
+  /*color: #61dafb;*/
+}
+
+.super-ellipse {
+  position: relative;
+  margin: 12px;
+}
+
+.preset-name {
+  position: absolute;
+  display: inline-flex;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  flex-direction: column;
+}
+
+.preset-name > small {
+  display: block;
+  font-size: 0.5em;
+}

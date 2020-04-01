@@ -1,0 +1,44 @@
+{
+  "name": "react-superellipse",
+  "version": "0.0.1",
+  "description": "superellipse react component",
+  "author": "QuadFlask",
+  "license": "MIT",
+  "main": "index.js",
+  "homepage": "https://github.com/QuadFlask/react-superellipse",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/QuadFlask/react-superellipse"
+  },
+  "keywords": [
+    "react",
+    "svg",
+    "squircle",
+    "superellipse",
+    "round",
+    "roundrect",
+    "border-radius",
+    "mask-image",
+    "mask"
+  ],
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "deploy": "npm version patch; npm run build; npm publish"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.31",
+    "react": "^16.13.1",
+    "typescript": "^3.8.3",
+    "superellipsejs": "^0.0.3"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.9.31",
+    "react": "^16.13.1",
+    "superellipsejs": "^0.0.3"
+  },
+  "files": [
+    "index.tsx",
+    "index.js",
+    "index.d.ts"
+  ]
+}
