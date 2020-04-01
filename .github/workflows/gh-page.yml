@@ -25,11 +25,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: git setup
-      working-directory: ./example
-    - run: git config --global user.name 'QuadFlask'
-    - run: git config --global user.email 'pop9310@gmail.com'
-    - run: npm i
+      run: |
+        git config --global user.name 'QuadFlask'
+        git config --global user.email 'pop9310@gmail.com'
     - name: deploy gh-page
-    - run: npm run deploy
+      working-directory: ./example
+      run: |
+        npm i
+        npm run deploy
       env:
         CI: true
