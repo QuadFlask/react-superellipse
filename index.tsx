@@ -12,8 +12,8 @@ interface SuperEllipseProps {
 const SuperEllipse: FC<SuperEllipseProps & React.HTMLAttributes<HTMLDivElement>> = (props) => {
     const w = props.width;
     const h = props.height;
-    let {r1 = w * Preset.iOS.r1, r2 = w * Preset.iOS.r2} = props;
-    const {dataUri} = getSuperEllipsePathAsDataUri(w, h, r1, r2);
+    let {r1 = Preset.iOS.r1, r2 = Preset.iOS.r2} = props;
+    const {dataUri} = getSuperEllipsePathAsDataUri(w, h, r1 * w, r2 * w);
     return <div {...props} style={{
         ...props.style,
         width: props.width,
@@ -44,9 +44,9 @@ export interface SuperEllipseImgProps {
 export const SuperEllipseImg = (props: SuperEllipseImgProps) => {
     const w = props.width;
     const h = props.height;
-    const {r1 = w * Preset.iOS.r1, r2 = w * Preset.iOS.r2} = props;
+    const {r1 = Preset.iOS.r1, r2 = Preset.iOS.r2} = props;
     const {strokeWidth = 0, strokeColor = 'rgba(255,255,255,0.5)', backgroundColor} = props;
-    const path = calcSuperEllipsePath(w, h, r1, r2);
+    const path = calcSuperEllipsePath(w, h, r1 * w, r2 * w);
     const id = `super-ellipse-${w}-${h}-${r1}-${r2}`;
 
     return <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={props.style}>
