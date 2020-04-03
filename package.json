@@ -39,6 +39,9 @@
   "files": [
     "index.tsx",
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "LRUCache.ts",
+    "LRUCache.js",
+    "LRUCache.d.ts"
   ]
 }
