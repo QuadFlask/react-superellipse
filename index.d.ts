@@ -6,6 +6,8 @@ interface SuperEllipseProps {
     style?: CSSProperties;
     r1?: number;
     r2?: number;
+    p1?: number;
+    p2?: number;
 }
 declare const SuperEllipse: FC<SuperEllipseProps & React.HTMLAttributes<HTMLDivElement>>;
 export interface SuperEllipseImgProps {

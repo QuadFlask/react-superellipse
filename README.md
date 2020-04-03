@@ -8,7 +8,7 @@ react-superellipse [![npm version](https://badge.fury.io/js/react-superellipse.s
 
 ## What is this?
 
-React component for Create [Superellipse](https://en.wikipedia.org/wiki/Superellipse) (or [Squircle](https://en.wikipedia.org/wiki/Squircle)) mask using svg and css `mask-image` attribute.
+React component for create [Superellipse](https://en.wikipedia.org/wiki/Superellipse) (or [Squircle](https://en.wikipedia.org/wiki/Squircle)) mask using svg and css `mask-image` attribute.
 
 iOS app icon is Squircle and KakaoTalk profile is Superellipse shape.
 
@@ -21,6 +21,11 @@ import SuperEllipse from "react-superellipse";
 <SuperEllipse width={64} height={64} r1={0.2} r2={0.5}>
     {/* children */}
 </SuperEllipse>
+
+<SuperEllipse width={64} height={64} p1={10} p2={32}>
+    {/* children */}
+</SuperEllipse>
+
 
 // or using preset
 
@@ -44,10 +49,13 @@ interface SuperEllipseProps {
     width: number;
     height: number;
     style?: CSSProperties;
-    r1?: number; // 0 ~ 0.5
-    r2?: number; // 0 ~ 0.5
+    r1?: number; // [0 ~ 0.5] width ratio
+    r2?: number; // [0 ~ 0.5] width ratio
+    p1?: number; // [0 ~ width/2] in pixel
+    p2?: number; // [0 ~ width/2] in pixel
 }
 ```
+> r1,r2 or p1,p2 
 
 ### `SuperEllipseImg`
 

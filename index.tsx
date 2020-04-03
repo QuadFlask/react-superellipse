@@ -7,13 +7,15 @@ interface SuperEllipseProps {
     style?: CSSProperties;
     r1?: number;
     r2?: number;
+    p1?: number;
+    p2?: number;
 }
 
 const SuperEllipse: FC<SuperEllipseProps & React.HTMLAttributes<HTMLDivElement>> = (props) => {
     const w = props.width;
     const h = props.height;
-    let {r1 = Preset.iOS.r1, r2 = Preset.iOS.r2} = props;
-    const {dataUri} = getSuperEllipsePathAsDataUri(w, h, r1 * w, r2 * w);
+    const {r1 = Preset.iOS.r1, r2 = Preset.iOS.r2, p1, p2} = props;
+    const {dataUri} = getSuperEllipsePathAsDataUri(w, h, p1 !== undefined ? p1 : r1 * w, p2 !== undefined ? p2 : r2 * w);
     return <div {...props} style={{
         ...props.style,
         width: props.width,

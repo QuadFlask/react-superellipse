@@ -8,6 +8,8 @@ const imgSrc = "https://images.unsplash.com/photo-1585572336833-4f34f2101c18?ixl
 function App() {
     const [r1, setR1] = useState(Preset.KakaoTalk.r1);
     const [r2, setR2] = useState(Preset.KakaoTalk.r2);
+    const p1 = 4;
+    const p2 = 24;
 
     return <div className="App">
         <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -51,6 +53,27 @@ function App() {
                 <div>r1: <input type="range" min={0} max={0.5} step={0.01} value={r1} onChange={e => setR1(parseFloat(e.target.value))} style={{width: size}}/></div>
                 <div>r2: <input type="range" min={0} max={0.5} step={0.01} value={r2} onChange={e => setR2(parseFloat(e.target.value))} style={{width: size}}/></div>
             </div>
+        </div>
+
+        <hr/>
+
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row'}}>
+            <SuperEllipse width={48} height={48} p1={p1} p2={p2} className="super-ellipse">
+                <img src={imgSrc} width="100%" height="100%"/>
+                <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
+            </SuperEllipse>
+            <SuperEllipse width={60} height={60} p1={p1} p2={p2} className="super-ellipse">
+                <img src={imgSrc} width="100%" height="100%"/>
+                <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
+            </SuperEllipse>
+            <SuperEllipse width={120} height={120} p1={p1} p2={p2} className="super-ellipse">
+                <img src={imgSrc} width="100%" height="100%"/>
+                <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
+            </SuperEllipse>
+            <SuperEllipse width={180} height={180} p1={p1} p2={p2} className="super-ellipse">
+                <img src={imgSrc} width="100%" height="100%"/>
+                <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
+            </SuperEllipse>
         </div>
 
         <div style={{padding: 12, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -133,6 +156,6 @@ function sgn(n: number) {
     return n > 0 ? 1 : -1;
 }
 
-const PresetName: FC = ({children}) => <span className="preset-name">{children}</span>
+const PresetName: FC<{ sm?: boolean }> = ({children, sm = false}) => <span className="preset-name" style={{fontSize: sm ? '12px' : undefined}}>{children}</span>
 
 export default App;
