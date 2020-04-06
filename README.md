@@ -18,11 +18,11 @@ iOS app icon is Squircle and KakaoTalk profile is Superellipse shape.
 ```tsx
 import SuperEllipse from "react-superellipse";
 
-<SuperEllipse width={64} height={64} r1={0.2} r2={0.5}>
+<SuperEllipse r1={0.2} r2={0.5} style={{width: 64, height: 64}}>
     {/* children */}
 </SuperEllipse>
 
-<SuperEllipse width={64} height={64} p1={10} p2={32}>
+<SuperEllipse p1={10} p2={32} style={{width: 64, height: 64}}>
     {/* children */}
 </SuperEllipse>
 
@@ -32,7 +32,7 @@ import SuperEllipse from "react-superellipse";
 import {Preset} from "react-superellipse";
 // preset for iOS squircle or Kakaotalk superellipse
 
-<SuperEllipse width={64} height={64} r1={Preset.iOS.r1} r2={Preset.iOS.r2}>
+<SuperEllipse r1={Preset.iOS.r1} r2={Preset.iOS.r2} style={{width: 64, height: 64}}>
     {/* children */}
 </SuperEllipse>
 ```
@@ -46,8 +46,6 @@ import {Preset} from "react-superellipse";
 
 ```ts
 interface SuperEllipseProps {
-    width: number;
-    height: number;
     style?: CSSProperties;
     r1?: number; // [0 ~ 0.5] width ratio
     r2?: number; // [0 ~ 0.5] width ratio
