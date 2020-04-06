@@ -28,7 +28,7 @@
   "devDependencies": {
     "@types/react": "^16.9.31",
     "typescript": "^3.8.3",
-    "superellipsejs": "^0.0.5",
+    "superellipsejs": "^0.0.6",
     "react-use-measure": "^2.0.0",
     "resize-observer-polyfill": "^1.5.1"
   },

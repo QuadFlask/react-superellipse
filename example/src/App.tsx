@@ -50,8 +50,8 @@ function App() {
                 <PresetName>r1: {r1}<br/>r2: {r2}</PresetName>
             </SuperEllipse>
             <div>
-                <div>r1: <input type="range" min={0} max={0.5} step={0.01} value={r1} onChange={e => setR1(parseFloat(e.target.value))} style={{width: size}}/></div>
-                <div>r2: <input type="range" min={0} max={0.5} step={0.01} value={r2} onChange={e => setR2(parseFloat(e.target.value))} style={{width: size}}/></div>
+                <div>r1: <input type="range" min={0} max={0.5} step={0.001} value={r1} onChange={e => setR1(parseFloat(e.target.value))} style={{width: size}}/></div>
+                <div>r2: <input type="range" min={0} max={0.5} step={0.001} value={r2} onChange={e => setR2(parseFloat(e.target.value))} style={{width: size}}/></div>
             </div>
         </div>
 
@@ -74,6 +74,21 @@ function App() {
                 <img src={imgSrc} width="100%" height="100%"/>
                 <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
             </SuperEllipse>
+        </div>
+
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            <img src="./ios.png"/>
+            <div style={{width: 1125, height: 810, background: 'black', position: 'relative'}}>
+                <AppIcon x={81} y={216}/>
+                <AppIcon x={342} y={216}/>
+                <AppIcon x={603} y={216}/>
+                <AppIcon x={864} y={216}/>
+
+                <RoundAppIcon x={81} y={522}/>
+                <RoundAppIcon x={342} y={522}/>
+                <RoundAppIcon x={603} y={522}/>
+                <RoundAppIcon x={864} y={522}/>
+            </div>
         </div>
 
         <div style={{padding: 12, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -106,8 +121,8 @@ function App() {
                     ctx.beginPath();
                     for (let t = 0; t < Math.PI * 2; t += 0.01) {
                         let {x, y} = squirclePolar(t);
-                        x *= 8.53;
-                        y *= 8.53;
+                        x *= 8.52;
+                        y *= 8.52;
                         x += size;
                         y += size;
                         ctx.lineTo(x * 2, y * 2);
@@ -132,12 +147,60 @@ function App() {
                     height: size * 2,
                     borderRadius: 120 * 2,
                     overflow: "hidden",
-                    border: '2px solid rgba(255,128,0,0.5)',
+                    border: '2px solid rgba(0,255,128,0.3)',
                     boxSizing: "border-box",
                 }}>
                 </div>
             </div>
         </div>
+    </div>
+}
+
+function AppIcon(props: { x: number; y: number; }) {
+    return <div style={{position: 'absolute', left: props.x, top: props.y}}>
+        <SuperEllipse style={{background: 'white', width: 180, height: 180}}>
+            <p style={{
+                fontSize: 28,
+                margin: 0,
+                paddingTop: 18
+            }}>월요일</p>
+            <p style={{
+                margin: 0,
+                fontSize: 116,
+                lineHeight: `98px`,
+            }}>6</p>
+        </SuperEllipse>
+        <h4 style={{
+            color: 'white',
+            fontSize: 32,
+            margin: 0,
+            fontWeight: "normal",
+            marginTop: 12,
+        }}>캘린더</h4>
+    </div>
+}
+
+function RoundAppIcon(props: { x: number; y: number; }) {
+    return <div style={{position: 'absolute', left: props.x, top: props.y}}>
+        <div style={{background: 'white', width: 180, height: 180, borderRadius: 42}}>
+            <p style={{
+                fontSize: 28,
+                margin: 0,
+                paddingTop: 18
+            }}>월요일</p>
+            <p style={{
+                margin: 0,
+                fontSize: 116,
+                lineHeight: `98px`,
+            }}>6</p>
+        </div>
+        <h4 style={{
+            color: 'white',
+            fontSize: 32,
+            margin: 0,
+            fontWeight: "normal",
+            marginTop: 12,
+        }}>캘린더</h4>
     </div>
 }
 
