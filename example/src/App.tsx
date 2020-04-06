@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import './App.css';
-import SuperEllipse, {Preset, SuperEllipseImg} from "../../";
+import SuperEllipse, {Preset, SuperEllipseImg} from "react-superellipse";
 
 const size = 512;
 const imgSrc = "https://images.unsplash.com/photo-1585572336833-4f34f2101c18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60";
@@ -29,14 +29,14 @@ function App() {
                     <small>border-radius: 120px</small>
                 </PresetName>
             </div>
-            <SuperEllipse width={size} height={size} r1={Preset.iOS.r1} r2={Preset.iOS.r2} className="super-ellipse">
+            <SuperEllipse style={{width: size, height: size}} r1={Preset.iOS.r1} r2={Preset.iOS.r2} className="super-ellipse">
                 <img src={imgSrc} width={size} height={size}/>
                 <PresetName>
                     <span>iOS</span>
                     <small>r1: {Preset.iOS.r1}, r2: {Preset.iOS.r2}</small>
                 </PresetName>
             </SuperEllipse>
-            <SuperEllipse width={size} height={size} r1={Preset.KakaoTalk.r1} r2={Preset.KakaoTalk.r2} className="super-ellipse">
+            <SuperEllipse style={{width: size, height: size}} r1={Preset.KakaoTalk.r1} r2={Preset.KakaoTalk.r2} className="super-ellipse">
                 <img src={imgSrc} width={size} height={size}/>
                 <PresetName>
                     <span>카카오톡</span>
@@ -45,7 +45,7 @@ function App() {
             </SuperEllipse>
         </div>
         <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-            <SuperEllipse width={size} height={size} r1={r1} r2={r2} className="super-ellipse">
+            <SuperEllipse style={{width: size, height: size}} r1={r1} r2={r2} className="super-ellipse">
                 <img src={imgSrc} width={size} height={size}/>
                 <PresetName>r1: {r1}<br/>r2: {r2}</PresetName>
             </SuperEllipse>
@@ -58,19 +58,19 @@ function App() {
         <hr/>
 
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row'}}>
-            <SuperEllipse width={48} height={48} p1={p1} p2={p2} className="super-ellipse">
+            <SuperEllipse style={{width: 48, height: 48}} p1={p1} p2={p2} className="super-ellipse">
                 <img src={imgSrc} width="100%" height="100%"/>
                 <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
             </SuperEllipse>
-            <SuperEllipse width={60} height={60} p1={p1} p2={p2} className="super-ellipse">
+            <SuperEllipse style={{width: 60, height: 60}} p1={p1} p2={p2} className="super-ellipse">
                 <img src={imgSrc} width="100%" height="100%"/>
                 <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
             </SuperEllipse>
-            <SuperEllipse width={120} height={120} p1={p1} p2={p2} className="super-ellipse">
+            <SuperEllipse style={{width: 120, height: 120}} p1={p1} p2={p2} className="super-ellipse">
                 <img src={imgSrc} width="100%" height="100%"/>
                 <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
             </SuperEllipse>
-            <SuperEllipse width={180} height={180} p1={p1} p2={p2} className="super-ellipse">
+            <SuperEllipse style={{width: 180, height: 180}} p1={p1} p2={p2} className="super-ellipse">
                 <img src={imgSrc} width="100%" height="100%"/>
                 <PresetName sm>p1: {p1}<br/>p2: {p2}</PresetName>
             </SuperEllipse>

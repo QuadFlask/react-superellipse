@@ -1,15 +1,17 @@
-import React, { CSSProperties, FC } from "react";
+import React, { CSSProperties } from "react";
 import { Preset } from "superellipsejs";
-interface SuperEllipseProps {
-    width: number;
-    height: number;
-    style?: CSSProperties;
+export interface SuperEllipseProps {
     r1?: number;
     r2?: number;
     p1?: number;
     p2?: number;
 }
-declare const SuperEllipse: FC<SuperEllipseProps & React.HTMLAttributes<HTMLDivElement>>;
+interface Bounds {
+    readonly width: number;
+    readonly height: number;
+}
+declare function SuperEllipse(props: SuperEllipseProps & React.HTMLAttributes<HTMLDivElement>): JSX.Element;
+export declare function getMaskStyle(bounds: Bounds, props: SuperEllipseProps): CSSProperties;
 export interface SuperEllipseImgProps {
     width: number;
     height: number;

@@ -1,25 +1,34 @@
-import React, {CSSProperties, FC} from "react";
+import React, {CSSProperties} from "react";
 import {calcSuperEllipsePath, getSuperEllipsePathAsDataUri, Preset} from "superellipsejs";
+import useMeasure from 'react-use-measure';
 
-interface SuperEllipseProps {
-    width: number;
-    height: number;
-    style?: CSSProperties;
+export interface SuperEllipseProps {
     r1?: number;
     r2?: number;
     p1?: number;
     p2?: number;
 }
 
-const SuperEllipse: FC<SuperEllipseProps & React.HTMLAttributes<HTMLDivElement>> = (props) => {
-    const w = props.width;
-    const h = props.height;
-    const {r1 = Preset.iOS.r1, r2 = Preset.iOS.r2, p1, p2} = props;
-    const {dataUri} = getSuperEllipsePathAsDataUri(w, h, p1 !== undefined ? p1 : r1 * w, p2 !== undefined ? p2 : r2 * w);
-    return <div {...props} style={{
+interface Bounds {
+    readonly width: number;
+    readonly height: number;
+}
+
+function SuperEllipse(props: SuperEllipseProps & React.HTMLAttributes<HTMLDivElement>) {
+    const [ref, bounds] = useMeasure();
+
+    return <div {...props} ref={ref} style={{
         ...props.style,
-        width: props.width,
-        height: props.height,
+        ...getMaskStyle(bounds, props)
+    }}>{props.children}</div>;
+}
+
+export function getMaskStyle(bounds: Bounds, props: SuperEllipseProps): CSSProperties {
+    const w = bounds.width;
+    const h = bounds.height;
+    const {r1 = Preset.iOS.r1, r2 = Preset.iOS.r2, p1, p2} = props;
+    const {dataUri} = getSuperEllipsePathAsDataUri(w, h, p1 !== undefined ? p1 : r1 * Math.min(w, h), p2 !== undefined ? p2 : r2 * Math.min(w, h));
+    return {
         maskImage: `url("${dataUri}")`,
         maskPosition: 'center',
         maskRepeat: 'no-repeat',
@@ -28,7 +37,7 @@ const SuperEllipse: FC<SuperEllipseProps & React.HTMLAttributes<HTMLDivElement>>
         WebkitMaskPosition: 'center',
         WebkitMaskRepeat: 'no-repeat',
         // WebkitMaskSize: 'contain'
-    }}>{props.children}</div>
+    };
 }
 
 export interface SuperEllipseImgProps {
@@ -48,7 +57,7 @@ export const SuperEllipseImg = (props: SuperEllipseImgProps) => {
     const h = props.height;
     const {r1 = Preset.iOS.r1, r2 = Preset.iOS.r2} = props;
     const {strokeWidth = 0, strokeColor = 'rgba(255,255,255,0.5)', backgroundColor} = props;
-    const path = calcSuperEllipsePath(w, h, r1 * w, r2 * w);
+    const path = calcSuperEllipsePath(w, h, r1 * Math.min(w, h), r2 * Math.min(w, h));
     const id = `super-ellipse-${w}-${h}-${r1}-${r2}`;
 
     return <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={props.style}>
