@@ -13,7 +13,7 @@
     "@types/react-dom": "^16.9.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "react-superellipse": "file:../",
     "typescript": "~3.8.3"
   },
